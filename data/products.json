@@ -1,0 +1,34 @@
+[
+  {
+    "id": "p1",
+    "slug": "blue-canvas-sneakers",
+    "title": "Blue Canvas Sneakers",
+    "description": "Lightweight canvas sneakers. Breathable and comfy.",
+    "price": 4500,
+    "images": ["/products/p1-1.jpg", "/products/p1-2.jpg"]
+  },
+  {
+    "id": "p2",
+    "slug": "leather-wallet",
+    "title": "Brown Leather Wallet",
+    "description": "Hand-stitched leather wallet with 6 card slots.",
+    "price": 3200,
+    "images": ["/products/p2-1.jpg"]
+  },
+  {
+    "id": "p3",
+    "slug": "wireless-headphones",
+    "title": "Wireless Bluetooth Headphones",
+    "description": "Premium sound quality with noise cancellation and 30-hour battery life.",
+    "price": 12500,
+    "images": ["/products/p3-1.jpg", "/products/p3-2.jpg"]
+  },
+  {
+    "id": "p4",
+    "slug": "smart-watch",
+    "title": "Smart Watch Series 5",
+    "description": "Track your fitness, receive notifications, and more with this sleek smartwatch.",
+    "price": 22000,
+    "images": ["/products/p4-1.jpg"]
+  }
+]
