@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '../components/CartProvider';
 
@@ -56,6 +57,16 @@ export default function CartPage() {
     clearCart();
   };
 
+  // Use a fallback image if the primary image fails to load
+  const getImageSrc = (imagePath) => {
+    // If it's already a full URL, use it as is
+    if (imagePath && imagePath.startsWith && imagePath.startsWith('http')) {
+      return imagePath;
+    }
+    // For local images, use the path directly
+    return imagePath || '/products/placeholder.jpg';
+  };
+
   return (
     <div>
       <Head>
@@ -80,8 +91,18 @@ export default function CartPage() {
                 
                 return (
                   <div key={item.id} className="cart-item">
-                    <div style={{ width: '100px', height: '100px', backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <span>Product Image</span>
+                    <div style={{ position: 'relative', width: '100px', height: '100px' }}>
+                      <Image
+                        src={getImageSrc(item.image)}
+                        alt={item.title || 'Product image'}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="cart-item-image"
+                        onError={({ currentTarget }) => {
+                          // Handle image loading errors gracefully
+                          currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+UHJvZHVjdCBJbWFnZTwvdGV4dD48L3N2Zz4=';
+                        }}
+                      />
                     </div>
                     <div className="cart-item-details">
                       <Link href={`/products/${item.slug || ''}`}>

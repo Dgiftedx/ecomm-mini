@@ -1,34 +1,82 @@
 [
   {
     "id": "p1",
-    "slug": "blue-canvas-sneakers",
-    "title": "Blue Canvas Sneakers",
-    "description": "Lightweight canvas sneakers. Breathable and comfy.",
-    "price": 4500,
-    "images": ["/products/p1-1.jpg", "/products/p1-2.jpg"]
+    "slug": "premium-yellow-garri",
+    "title": "Premium Yellow Garri (5kg Bag)",
+    "description": "Premium yellow garri in a 5kg bag. Perfect for those who love the traditional taste.",
+    "price": 2500,
+    "images": ["/products/garri.png", "/products/garri.png"]
   },
   {
     "id": "p2",
-    "slug": "leather-wallet",
-    "title": "Brown Leather Wallet",
-    "description": "Hand-stitched leather wallet with 6 card slots.",
+    "slug": "pure-red-palm-oil",
+    "title": "Pure Red Palm Oil (4 Litres)",
+    "description": "Pure red palm oil in a 1kg bottle. Versatile and delicious in cooking.",
     "price": 3200,
-    "images": ["/products/p2-1.jpg"]
+    "images": ["/products/palm-oil.png"]
   },
   {
     "id": "p3",
-    "slug": "wireless-headphones",
-    "title": "Wireless Bluetooth Headphones",
-    "description": "Premium sound quality with noise cancellation and 30-hour battery life.",
-    "price": 12500,
-    "images": ["/products/p3-1.jpg", "/products/p3-2.jpg"]
+    "slug": "brown-honey-beans",
+    "title": "Brown Honey Beans (5kg Bag)",
+    "description": "Clean, stone-free brown honey beans, perfect for porridge or stews.",
+    "price": 4250,
+    "images": ["/products/beans.png", "/products/beans.png"]
   },
   {
     "id": "p4",
-    "slug": "smart-watch",
-    "title": "Smart Watch Series 5",
-    "description": "Track your fitness, receive notifications, and more with this sleek smartwatch.",
-    "price": 22000,
-    "images": ["/products/p4-1.jpg"]
+    "slug": "premium-shelled-egusi",
+    "title": "Premium Shelled Egusi (1kg Bag)",
+    "description": "High-quality, shelled melon seeds for rich and nutritious soups.",
+    "price": 3800,
+    "images": ["/products/egusi.png"]
+  },
+  {
+    "id": "p5",
+    "slug": "roasted-groundnuts",
+    "title": "Roasted Groundnuts (1kg Bag)",
+    "description": "Freshly roasted, crunchy groundnuts for snacks, paste, or cooking.",
+    "price": 2000,
+    "images": ["/products/peanut.png"]
+  },
+  {
+    "id": "p6",
+    "slug": "long-grain-parboiled-rice",
+    "title": "Long Grain Parboiled Rice (5kg Bag)",
+    "description": "Clean, non-sticky parboiled rice, perfect for fluffy daily meals.",
+    "price": 4500,
+    "images": ["/products/rice.png", "/products/rice.png"]
+  },
+  {
+    "id": "p7",
+    "slug": "pure-okpa-bambara-flour",
+    "title": "Pure Okpa (Bambara Nut) Flour (500g)",
+    "description": "Finely milled flour for making traditional, nutritious okpa dumplings.",
+    "price": 1800,
+    "images": ["/products/okpa-flour.png"]
+  },
+  {
+    "id": "p8",
+    "slug": "fresh-brown-onions",
+    "title": "Fresh Brown Onions (2kg Bag)",
+    "description": "Firm, fresh brown onions for enhancing flavour in all dishes.",
+    "price": 1500,
+    "images": ["/products/onions.png", "/products/onions.png"]
+  },
+  {
+    "id": "p9",
+    "slug": "dried-jumbo-crayfish",
+    "title": "Dried Jumbo Crayfish (500g Bag)",
+    "description": "Sun-dried, large crayfish for deep, umami flavour in soups and stews.",
+    "price": 2500,
+    "images": ["/products/crayfish.png", "/products/crayfish.png"]
+  },
+  {
+    "id": "p10",
+    "slug": "fresh-irish-potatoes",
+    "title": "Fresh Irish Potatoes (3kg Bag)",
+    "description": "Versatile, washed Irish potatoes, ideal for boiling, frying, or stewing.",
+    "price": 2500,
+    "images": ["/products/Irish-potatoes.png", "/products/Irish-potatoes.png"]
   }
 ]

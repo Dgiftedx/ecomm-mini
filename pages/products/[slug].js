@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { useCart } from '../../components/CartProvider';
 import productsData from '../../data/products.json';
 
@@ -41,6 +42,16 @@ export default function ProductDetail({ product }) {
     return <div>Product not found</div>;
   }
 
+  // Use a fallback image if the primary image fails to load
+  const getImageSrc = (imagePath) => {
+    // If it's already a full URL, use it as is
+    if (imagePath && imagePath.startsWith && imagePath.startsWith('http')) {
+      return imagePath;
+    }
+    // For local images, use the path directly
+    return imagePath || '/products/placeholder.jpg';
+  };
+
   return (
     <div>
       <Head>
@@ -58,19 +69,39 @@ export default function ProductDetail({ product }) {
         <div className="product-detail">
           {/* Product Images */}
           <div className="product-images">
-            <div style={{ width: '100%', height: '400px', backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span>Product Image</span>
+            <div style={{ position: 'relative', width: '100%', height: '400px' }}>
+              <Image
+                src={getImageSrc(product.images[selectedImage])}
+                alt={product.title || 'Product image'}
+                fill
+                style={{ objectFit: 'cover' }}
+                className="product-main-image"
+                onError={({ currentTarget }) => {
+                  // Handle image loading errors gracefully
+                  currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+UHJvZHVjdCBJbWFnZTwvdGV4dD48L3N2Zz4=';
+                }}
+              />
             </div>
             {product.images.length > 1 && (
               <div className="thumbnail-container">
                 {product.images.map((image, index) => (
                   <div 
                     key={index} 
-                    style={{ width: '80px', height: '80px', backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '5px', cursor: 'pointer' }}
+                    style={{ position: 'relative', width: '80px', height: '80px', margin: '5px', cursor: 'pointer' }}
                     className={selectedImage === index ? 'active' : ''}
                     onClick={() => setSelectedImage(index)}
                   >
-                    <span>{index + 1}</span>
+                    <Image
+                      src={getImageSrc(image)}
+                      alt={`${product.title || 'Product'} ${index + 1}`}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
+                      onError={({ currentTarget }) => {
+                        // Handle image loading errors gracefully
+                        currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+UHJvZHVjdCBJbWFnZTwvdGV4dD48L3N2Zz4=';
+                      }}
+                    />
                   </div>
                 ))}
               </div>
@@ -80,7 +111,7 @@ export default function ProductDetail({ product }) {
           {/* Product Details */}
           <div className="product-details">
             <h1>{product.title}</h1>
-            <p className="product-price">{formatPrice(product.price)}</p>
+            <p className="product-price">{formatPrice(product.price || 0)}</p>
             <p>{product.description}</p>
 
             <div className="quantity-selector">
